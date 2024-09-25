@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcula el precio de tu canción</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Calcula el precio de tu canción</h1>
+    
+    <label for="tipoCancion">Tipo de canción:</label>
+    <select id="tipoCancion">
+        <option value="15000">Mensaje musical (30 seg - 1 min) - $15.000</option>
+        <option value="30000">Canción acústica (1.30 - 2.30 min) - $30.000</option>
+        <option value="120000">Producción Full Banda (1.30 - 2.30 min) - $120.000</option>
+    </select>
+
+    <label for="metodoComposicion">Método de composición:</label>
+    <select id="metodoComposicion">
+        <option value="0">Formulario simple - $0</option>
+        <option value="30000">Llamada/sesión - $30.000</option>
+    </select>
+
+    <label for="tiempoEntrega">Tiempo de entrega:</label>
+    <select id="tiempoEntrega">
+        <option value="0">15-30 días - $0</option>
+        <option value="20000">7-14 días - $20.000</option>
+        <option value="40000">3-6 días - $40.000</option>
+        <option value="60000">1-2 días - $60.000</option>
+    </select>
+
+    <button onclick="calcularPrecio()">Calcular Precio Total</button>
+
+    <div class="result" id="resultado"></div>
+</div>
+
+<script>
+    function calcularPrecio() {
+        var tipoCancion = parseInt(document.getElementById("tipoCancion").value);
+        var metodoComposicion = parseInt(document.getElementById("metodoComposicion").value);
+        var tiempoEntrega = parseInt(document.getElementById("tiempoEntrega").value);
+
+        var total = tipoCancion + metodoComposicion + tiempoEntrega;
+
+        document.getElementById("resultado").innerHTML = "Precio Total: $" + total.toLocaleString();
+    }
+</script>
+
+</body>
+</html>
